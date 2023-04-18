@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './scss/style.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from 'react-redux'
+import {Store, sagaMiddleware} from './redux/store'
+import { rootSaga } from './redux';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+sagaMiddleware.run(rootSaga);
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={Store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
