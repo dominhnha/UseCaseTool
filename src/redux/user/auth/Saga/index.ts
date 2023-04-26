@@ -1,8 +1,11 @@
-import { _signIn } from "../action";
+import { _signIn, _signOut, _signUp } from "../action";
 import { signInSaga } from "./SignIn";
 import { takeEvery,takeLatest, actionChannel } from 'redux-saga/effects';
+import { SignUpSaga } from "./SignUp";
+import { SignOut } from "../../../../api/authencation/auth";
 
 export function* rootAuthSaga():any {
-    const channel = yield actionChannel(_signIn.type);
-    yield takeLatest(channel, signInSaga);
+    yield takeEvery(_signIn.type, signInSaga);
+    yield takeEvery(_signUp.type,SignUpSaga);
+    yield takeEvery(_signOut.type,SignOut);
 }

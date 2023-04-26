@@ -6,6 +6,10 @@ AUTH_SIGN_IN_PENNING,
 AUTH_SIGN_IN_ERROR,
 AUTH_SIGN_IN_FETCH,
 AUTH_SIGN_OUT,
+AUTH_SIGN_UP_ERROR,
+AUTH_SIGN_UP_PENNING,
+AUTH_SIGN_UP_SUCCESS,
+AUTH_SIGN_UP_FETCH,
 } from './constants'
 
 export interface initUser {
@@ -18,6 +22,7 @@ export interface initUser {
     }
     loading: boolean;
     error: any;
+    isLogin: boolean;
 }
 
 export const initState: initUser = {
@@ -30,6 +35,7 @@ export const initState: initUser = {
     },
     loading: false,
     error: null,
+    isLogin:false,
 };
 
 
@@ -38,9 +44,12 @@ const authSlice = createSlice({
     initialState: initState,
     reducers: {
         AUTH_SIGN_IN_SUCCESS:(state,action)=>{
+            
             state.loading=false;
             state.error = null;
+            state.isLogin = true;
             state.auth = action.payload
+            console.log(state.isLogin)
         },
         AUTH_SIGN_IN_PENNING:(state,action)=>{
             state.loading=true;
@@ -50,11 +59,13 @@ const authSlice = createSlice({
         },
         AUTH_SIGN_IN_ERROR:(state,action)=>{
             state.loading=false;
+            state.isLogin = false;
             state.error = action.payload;
         },
         AUTH_SIGN_OUT:(state,action)=>{
             state.loading=false;
             state.error = null;
+            state.isLogin = false;
             state.auth = {
                 uid:null,
                 displayName: null,
@@ -62,8 +73,23 @@ const authSlice = createSlice({
                 photoUrl: null,
                 emailVerified: null,
             }
+        },
+        AUTH_SIGN_UP_FETCH:(state,action)=>{
+            state.loading=true;
+        },
+        AUTH_SIGN_UP_PENNING:(state,action)=>{
+            state.loading=true;
+        },
+        AUTH_SIGN_UP_SUCCESS:(state,action)=>{
+            state.loading = false;
+            state.error = null;
+        },
+        AUTH_SIGN_UP_ERROR:(state,action)=>{
+            state.loading=false;
+            state.error = action.payload;
         }
     },
+    
 
 });
 

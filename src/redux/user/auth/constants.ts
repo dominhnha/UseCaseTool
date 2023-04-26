@@ -8,5 +8,9 @@ export const AUTH_SIGN_IN_ERROR = 'auth/SIGN_IN_ERROR';
 
 export const AUTH_SIGN_OUT = 'auth/SIGN_OUT';
 
-// change password
+// SIGN_UP
+export const AUTH_SIGN_UP_FETCH  = 'auth/SIGN_UP_FETCH';
+export const AUTH_SIGN_UP_PENNING = 'auth/SIGN_UP_PENNING';
+export const AUTH_SIGN_UP_SUCCESS = 'auth/SIGN_UP_SUCCESS';
+export const AUTH_SIGN_UP_ERROR = 'auth/SIGN_UP_ERROR';
 

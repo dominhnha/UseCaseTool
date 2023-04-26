@@ -5,7 +5,7 @@ interface adminLayout {
   
 const AdminLayout:React.FC<adminLayout> = ({children}) => {
   return (
-    <div>{children}</div>
+    <div>{children} oke</div>
   )
 }
 

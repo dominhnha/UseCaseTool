@@ -4,7 +4,6 @@ import { all, call, put } from 'redux-saga/effects';
 
 export function* signInSaga(action: { type: string, payload: signIn }): Generator<any, any, any> {
     try {
-        yield put(_signInPenning());
         console.log("action", action)
         // get user
         const { email, password } = action.payload

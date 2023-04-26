@@ -1,3 +1,4 @@
+import React from 'react'
 const Footer:React.FC = () => {
     return (
       <div>Footer</div>
@@ -5,3 +6,4 @@ const Footer:React.FC = () => {
   }
   
   export default Footer
+  
