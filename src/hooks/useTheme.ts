@@ -3,15 +3,31 @@ import PropTypes from 'prop-types'
 
 const useTheme = () => {
     const [theme, setTheme] = useState<string|null>(null);
-
-    useEffect(() => {
-      if(window.matchMedia('(prefers-color-scheme: light)').matches){
+    const handleInitTheme = ()=>{
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches){
         setTheme('dark');
+        localStorage.setItem('theme', "dark")
       }
       else {
         setTheme('light');
+        localStorage.setItem('theme', "light")
       }
-    }, [])
+    }
+    
+    useEffect(()=>{
+      const getTheme = async () => {
+        const initTheme = localStorage.getItem('theme');
+        console.log(initTheme)
+        if (!initTheme) {
+          await handleInitTheme();
+        } else {
+          setTheme(initTheme);
+        }
+      };
+      getTheme();
+    },[])
+  
+    
   
     useEffect(() => {
       if (theme === "dark") {
@@ -22,10 +38,13 @@ const useTheme = () => {
     }, [theme]);
   
     const handleThemeSwitch = () => {
-      setTheme(theme === "dark" ? "light" : "dark");
+      const initTheme =  theme === "dark" ? "light" : "dark"
+      setTheme(initTheme);
+      localStorage.setItem('theme', initTheme)
     };
     return {
-        theme,handleThemeSwitch
+        theme,
+        handleThemeSwitch
     }
 }
 

@@ -1,29 +1,61 @@
 .text-primary {
-    color: $primary !important;
+  color: $primary !important;
 }
-.text-secondary{
-    color:$secondary;
-}
-
-.tooltip{
-    transition: all 0.5s ease !important;
-    color: $primary !important;
+.text-secondary {
+  color: $secondary;
 }
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto ;
+.tooltip {
+  transition: all 0.5s ease !important;
+  color: $primary !important;
 }
 
-.btn-primary{
-    background-color: $primary ;
-    color: white !important;
-    &:hover{
-        opacity: 0.8;
-    }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: white !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.Button {
+  display: inline-block;
+  text-decoration: none;
+//   text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: 2px solid;
+  padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #fff;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 150%;
+    height: 100%;
+    background-color: #50C2C9;
+    transform: scaleX(0) skewX(35deg);
+    transform-origin: left;
+    z-index: -1;
+    transition: transform 1s;
+  }
+  &:hover::before {
+    transform: scaleX(1) skewX(35deg);
+  }
 }
 
 // main{
 //     margin-top: 84px;
-    
+
 // }

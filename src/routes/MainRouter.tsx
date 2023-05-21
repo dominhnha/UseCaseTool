@@ -28,6 +28,7 @@ const MainRouter: React.FC = () => {
           <Route element={<PrivateRouter isLogin={isLogin} />} path={'Profile'} >
             <Route element={<Profile />} index />
           </Route>
+          U
 
         </Routes>
       </DefaultLayout>

@@ -25,6 +25,7 @@ export const _signIn = createAction(authSlice.actions.AUTH_SIGN_IN_FETCH.type, (
         payload
     };
 });
+
 export const _signInPenning = createAction(authSlice.actions.AUTH_SIGN_IN_PENNING.type);
 
 export const _signInSuccess = createAction(authSlice.actions.AUTH_SIGN_IN_SUCCESS.type, (payload: signInSuccess) => {
