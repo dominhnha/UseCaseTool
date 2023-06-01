@@ -16,7 +16,13 @@
 @import './components/loading';
 @import './components/title';
 @import './components/footer';
+@import './components/result';
 
 
 /* ------------------- Pages ------------------ */
 @import 'pages/home';
+@import 'pages/signIn';
+@import 'pages/signUp';
+@import 'pages/tool';
+@import 'pages/History';
+@import 'pages/Profile';

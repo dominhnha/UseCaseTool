@@ -7,9 +7,10 @@ export interface signIn {
 }
 
 export interface signUp {
-    displayName:string,
-    email: string, 
+    FullName:string,
+    Email: string, 
     password: string,
+    confirmPassword?:string
 }
 
 export interface signInSuccess{
@@ -64,3 +65,6 @@ export const _signUpError = createAction(authSlice.actions.AUTH_SIGN_UP_ERROR.ty
 //----------------------SIGN OUT
 
 export const _signOut = createAction(authSlice.actions.AUTH_SIGN_OUT.type)
+
+
+

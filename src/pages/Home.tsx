@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Home__1 from "../assets/Images/Image2.png";
 import bg from "../assets/Images/2.jpg";
 import Title from "../components/Title";
 import { url } from "inspector";
+import { useAppDispatch, useAppSelector } from "../hooks/redux.hook";
+import { _useCasePointEcfFectch, _useCasePointTcfFectch, _useCasePointUawFectch, _useCasePointUucpFectch } from "../redux/mainFuture";
+import { selectorTcf, selectorUaw, selectorUseCasePoint, selectorUucp } from "../redux/mainFuture/selector";
 
 const Home: React.FC = (props) => {
   const newLocal = `${bg}`;
+
+  // const dispatch = useAppDispatch();
+  // const index =  useAppSelector(selectorUucp)
+  // const index1 =  useAppSelector(state => state)
+  // console.log("+++++++++",index);
+  // useEffect(()=>{
+  //   dispatch(_useCasePointUucpFectch({
+  //         average:1,
+  //         complex:1,
+  //         simple:1
+  //       }))
+  // },[])
+
+
+  
   return (
     <div className="Home">
       <div className="container">
         <div className="Home__wrapper">
           <div className="Home__border">
-            <div className="shape">UseCaseTool</div>
+            <div className="shape">Team 1</div>
           </div>
           <div className="Home__content">
             <h1 className="Home__content__title">UseCaseTool</h1>
